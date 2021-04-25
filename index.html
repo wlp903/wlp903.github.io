@@ -1,43 +1,95 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
- <head>
-  <title>用户登录界面</title>
-  <meta charset="UTF-8" />
- </head>
- <body>
-  <filedset>
-   <legend>用户登录界面</legend>
-   <form id='myform' action='login.php' method='post'>
-    <table>
-     <tr>
-      <td>用户名：</td>
-      <td><input type='text' id='userName' name='username'></td>
-     </tr>
-     <tr>
-      <td>密   码：</td>
-      <td><input type='text' id="passWord" name='password'></td>
-     </tr>
-     <tr>
-      <td></td>
-      <td><input type='submit' value='登录'></td>
-     </tr>
-    </table>
-    
-   </form>
-  </filedset>
- </body>
-=======
-<html lang="zh_CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>你好，欢迎来到未来</title>
-   <body>
-   <p>你的财产被我分给你的家人了，</p>
-   <p>你爸爸1块，</p>
-   <p>你妈妈2块，</p>
-   <p>你弟弟3块，</p>
-   <p>对了，忘记给你分了，1毛你要不要？</p></body>
-  
->>>>>>> d10cfda8800d0f5550363ca1c073175fc6d9411b
+  <title>静态页面登录测试</title> 
+ 
+ <script language="javascript">
+ window.onload = function() {
+  createCode()
+ }
+ var code; //在全局定义验证码 
+ function createCode() {
+  code = "";
+  var codeLength = 4; //验证码的长度 
+  var checkCode = document.getElementById("code");
+  var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+   'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数 
+  for(var i = 0; i < codeLength; i++) { //循环操作 
+  var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35） 
+   code += random[index]; //根据索引取得随机数加到code上 
+  }
+  checkCode.value = code; //把code值赋给验证码 
+ }
+ //校验验证码 
+function validateLogin(){
+    var sUserName = document.frmLogin.username.value ;
+    var sPassword = document.frmLogin.password.value ;
+    var inputCode = document.frmLogin.text_code.value;
+    /*var sinputCode =document.frmLogin.inputcode.value ;  */
+    if ((sUserName.length <= 0) || (sUserName=="")){
+     alert("请输入用户名!");
+     return false ;
+    }
+     
+    if ((sPassword.length <= 0) || (sPassword=="")){
+     alert("请输入密码!");
+     return false ;
+    }
+    if ((inputCode.length<= 0) || (inputCode==NULL)){
+        alert("请输入验证码!");
+        return false ;
+       }
+   } 
+  </script>
+</head>
+<body >
+<fieldset>
+<table background="images\e.jpg " width="933" height="412">
+ <tr height="170">
+ <td width="570px"> </td>
+ <td> </td>
+ </tr> 
+ <tr>
+<td> </td>        
+<td><table>
+<form method ="POST" action="http://localhost:8080/test/hello.html?login=%B5%C7%C2%BC" name="frmLogin"  >
+ <tr>
+ <td><label for="username">用户名：</label></td>
+ <td><input type="text" name="username"  id="username" placeholder="input your name" size="20" maxlength="20" /></td>
+ <td > </td>
+ <td> </td>
+ </tr>
+ <tr>
+ <td><label for="password">密  码：</label></td>
+ <td><input type="password" name="password" id="password" placeholder="input your password" size="20" maxlength="20" )  this.value='';" /></td>
+ <td> </td>
+ <td> </td>
+ </tr>
+ <tr>
+ <td><label for="text_code">验证码:</label></td>
+ <td><input type="text" size="" name="text_code" id="text_code" /></td>
+ <td><input type="button" id="code" onclick="createCode()" name=""></td>
+ </tr>
+ <tr>
+ <td><input type="checkbox" name="zlogin" value="1">自动登录</td>
+ </tr>
+ </table>
+ </td>
+  <tr>
+  <td> </td>   
+  <td><table>
+   <tr>
+  <td><input type="submit" name="login" value="登录" onClick="return validateLogin()"/></td>
+  <td><input type="reset" name="rs" value="重置"></td>
+  <td><input type="button" name="button" value="注册" onclick="window.location.href='https://www.w3school.com.cn/jsref/event_onfocus.asp'"></td>
+  </tr>
+ </tr>
+ </table>
+ </td>
+ </table>
+</fieldset>
+</form>
+ 
+</body>
 </html>
